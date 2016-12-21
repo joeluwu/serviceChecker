@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script type="text/javascript" src="dygraph-combined-dev.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="synchronizer.js"></script>
+    <script src="mainchart.js"></script>
+    <title>Record Tables</title>
+  </head>
+  <body>
+    <table cellpadding="10" style="border:2px solid lightslategray;border-collapse:collapse;">
+      <tr>
+
+        <td>
+          <div id="tableAll"style="width:786.5px; height:400px;"></div>
+        </td>
+
+        <td valign=top>
+          <div id="status" style="width:98px; font-size:0.8em;"></div>
+        </td>
+
+        <td valign=top style="padding-top:8px; border:2px solid lightslategray;">
+          <input id='log' type="button" value="Log Scale" onclick="setLogScale(true)"
+                 style="width: 80px" ><br/>
+          <input id='linear' type="button" value="Linear Scale" onclick="setLogScale(false)"
+                 style="width: 80px; margin-top:6px" disabled=true>
+          <font size ="2"><p id="checkBox">
+            <input type=checkbox id="toggleAll" onClick="toggleAll(this)">
+            <label for="toggleAll"> <b>Select All</b></label><br/>
+            </p></font>
+        </td>
+
+      </tr>
+    </table><br/>
+
+    <div class="tableContainer" id="smallChartContainer"></div>
+
+    <script type="text/javascript">
+      buildFromDB('http://127.0.0.1:8000/records/');
+    </script>
+  </body>
+</html>
